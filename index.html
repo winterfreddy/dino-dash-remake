@@ -6,17 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dino-Dash The Remake</title>
     <link rel="stylesheet" href="./public/stylesheets/layout.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shojumaru&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="splashPage" class="splash">
         <div class="splash-content">
-            <label>Dino Dash The Remake</label>
+            <div class="title-content">
+                <div class="title-main">
+                    <label>Dino Dash</label>
+                    <label>The Remake</label>
+                </div>
+                <div class="title-description">
+                    <label>Join as the energetic green dinosaur, Danny, on another endless run and destory those palm trees in his path!</label>
+                </div>
+            </div>
+            <div class="instructions-content">
+                <label class="instructions-main">Instructions:</label>
+                <ol class="instructions-description">
+                    <li>Correctly type the prompted word to initiate a meteor to destroy the trees.</li>
+                    <li>If you hit a tree, you get a strike but keep going!</li>
+                    <li>Three strikes, the game's over!</li>
+                </ol>
+            </div>
         </div>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeSplashPage()">I'm Ready!</a>
+        <button class="closebtn" onclick="closeSplashPage()">I'm Ready!</button>
     </div>
 
     <span style="font-size:30px;cursor:pointer" onclick="openSplashPage()">&#9776; Open splash page</span>
 
     <script type="text/javascript" src="./src/layout.js"></script>
+    <script>document.getElementById("splashPage").style.height = "100%";</script>
 </body>
 </html>

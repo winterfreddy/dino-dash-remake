@@ -17,9 +17,11 @@ body {
 .splash-content {
   position: relative;
   top: 25%;
-  width: 100%;
+  max-width: 60%;
   text-align: center;
   margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .splash a {
@@ -31,20 +33,63 @@ body {
   transition: 0.3s;
 }
 
-.splash a:hover, .splash a:focus {
-  color: green;
-}
 
 .splash {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
+    position: absolute;
+    right: 45px;
 }
 
 .closebtn {
     text-align: center;
     position: absolute;
-    bottom: 40px;
-    left: 45vw;
+    bottom: 0px;
+    width: 100%;
+    height: 65px;
+    font-size: 25px;
+    background: none;
+    border: none;
+}
+
+.closebtn:hover, .closebtn:focus {
+    background: green;
+    color: white;
+    transition: 0.7s;
+}
+
+.title-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.title-main,
+.instructions-main,
+.closebtn {
+    font-family: 'Shojumaru', cursive;
+}
+
+.title-main {
+    font-size: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-main label:last-child {
+    font-size: 30px;
+}
+
+.title-description {
+    font-size: 40px;
+    padding: 60px;
+}
+
+.instructions-main {
+    font-size: 30px;
+}
+
+.instructions-content {
+    text-align: left;
+}
+
+.instructions-description {
+    font-size: 20px;
 }
