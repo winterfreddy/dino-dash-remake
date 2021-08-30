@@ -63,7 +63,8 @@ body {
 
 .title-main,
 .instructions-main,
-.closebtn {
+.closebtn,
+.navbar {
     font-family: 'Shojumaru', cursive;
 }
 
@@ -92,4 +93,19 @@ body {
 
 .instructions-description {
     font-size: 20px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 10px;
+}
+
+.navbar > label {
+    font-size: 30px;
+}
+
+.navbar:hover {
+    color: green;
 }
