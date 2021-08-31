@@ -40,7 +40,32 @@
         &#9660;
     </div>
 
+    <div class="main-content">
+        <div class="game-content">
+            <div class="game-prompt">
+                Type this word...
+                <label id="word-prompt"></label>
+            </div>
+            <div class="game-screen"></div>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-tracker">
+                <div class="sidebar-counter">
+                    Correct Words:
+                    <label id="correctNum">0</label>
+                </div>
+                <div class="sidebar-strikes">
+                    Strikes:
+                    <label id="strike-1">X</label>
+                    <label id="strike-2">X</label>
+                    <label id="strike-3">X</label>
+                </div>
+            </div>
+            <div class="sidebar-highscores"></div>
+        </div>
+    </div>
+
     <script type="text/javascript" src="./src/layout.js"></script>
-    <script>document.getElementById("splashPage").style.height = "100%";</script>
+    <!-- <script>document.getElementById("splashPage").style.height = "100%";</script> -->
 </body>
 </html>

@@ -109,3 +109,32 @@ body {
 .navbar:hover {
     color: green;
 }
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.game-content,
+.sidebar-content,
+.sidebar-tracker {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-prompt {
+    font-size: 40px;
+    width: 75vw;
+    margin: 20px;
+}
+
+.game-prompt > label {
+    font-size: 50px;
+    text-align: right;
+}
+
+.sidebar-content {
+    font-size: 30px;
+    margin: 20px;
+    width: 25vw;
+}
