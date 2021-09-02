@@ -48,9 +48,9 @@
             </div>
             <div class="game-screen">
                 <canvas id="myCanvas" width="700" height="500" class="canvas"></canvas>
-                <!-- <label class="ready-label">Ready...</label>
-                <label class="set-label">Set...</label>
-                <label class="go-label">Go!</label> -->
+                <label class="ready-label" id="ready-label">Ready...</label>
+                <label class="set-label" id="set-label">Set...</label>
+                <label class="go-label" id="go-label">Go!</label>
             </div>
         </div>
         <div class="sidebar-content">
@@ -70,9 +70,10 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="./src/words.js"></script>
     <script type="text/javascript" src="./src/sprites.js"></script>
     <script type="text/javascript" src="./src/layout.js"></script>
-    <script type="text/javascript" src="./src/words.js"></script>
+    <script type="text/javascript" src="./src/gameplay.js"></script>
     <script>document.getElementById("splashPage").style.height = "100%";</script>
 </body>
 </html>

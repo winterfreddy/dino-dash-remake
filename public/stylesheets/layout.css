@@ -140,6 +140,7 @@ body {
 .set-label,
 .go-label {
     font-size: 50px;
+    display: none;
 }
 
 .game-screen {

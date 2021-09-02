@@ -4,4 +4,5 @@ function openSplashPage() {
 
 function closeSplashPage() {
     document.getElementById("splashPage").style.height = "0%";
+    startGame();
 }
