@@ -1,8 +1,27 @@
 let chosenWord = "";
+let strikes = 0;
+let gameover = false;
 
 function incrementStrikes(strikeNum) {
+    console.log(strikes);
     document.getElementById(`strike-${strikeNum}`).style.color = "red";
-    if(strikeNum === 3) stopGame();
+    if(strikeNum === 3) {
+        gameover = true;
+        stopGame();
+    }
+}
+
+function renderNewWord() {
+    idleMode = false;
+    movePalm = true;
+    chosenWord = getSampleWord();
+    document.getElementById('word-prompt').innerHTML = chosenWord;
+    document.getElementById('type-input').value = "";
+    document.getElementById('type-input').focus();
+    document.addEventListener('keydown', function(e) {
+        let input = document.getElementById('type-input').value;
+        if(input == chosenWord) console.log('input matches chosen word');
+    })
 }
 
 function startGame() {
@@ -17,18 +36,11 @@ function startGame() {
     },2000);
     setTimeout(function() {
         document.getElementById("go-label").style.display = "none";
-        idleMode = false;
-        movePalm = true;
-        chosenWord = getSampleWord();
-        document.getElementById('word-prompt').innerHTML = chosenWord;
-        document.getElementById('type-input').focus();
-        document.addEventListener('keydown', function(e) {
-            let input = document.getElementById('type-input').value;
-            if(input == chosenWord) console.log('input matches chosen word');
-        })
+        renderNewWord();
     },3000);
 }
 
 function stopGame() {
     idleMode = true;
+    document.getElementById('word-prompt').innerHTML = "";
 }

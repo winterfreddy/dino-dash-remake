@@ -29,7 +29,7 @@ let dinoY = 1000;
 let dinoSrcX;
 let dinoSrcY;
 
-let palmTreeX = 2700;
+let palmTreeX = 2600;
 let palmTreeY = 800;
 let palmTreeScale = 5;
 let movePalm = false;
@@ -47,7 +47,6 @@ let explosionScale = 4;
 let dinoCurrFrame = 0;
 let explosionCurrFrame = 0;
 let idleMode = true;
-let strikes = 0;
 
 let canvas = document.getElementById("myCanvas");
 canvas.width = canvasWidth;
@@ -66,6 +65,7 @@ function updateFrame() {
 
     ctx.clearRect(dinoX, dinoY, dinoWidth, dinoHeight);
     ctx.clearRect(explosionX, explosionY, explosionWidth*explosionScale, explosionHeight*explosionScale);
+    ctx.clearRect(palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
 }
 
 function drawImage() {
@@ -73,12 +73,12 @@ function drawImage() {
     let dinoSprite = idleMode ? idleDinoSprite : runDinoSprite;
     ctx.drawImage(dinoSprite, dinoSrcX, dinoSrcY, dinoWidth, dinoHeight, dinoX, dinoY, dinoWidth, dinoHeight);
 
-    ctx.clearRect(palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
-    if(movePalm) palmTreeX -= 100;
-    if(palmTreeX < dinoX) {
+    if(movePalm) palmTreeX -= 20;
+    if(palmTreeX < 0) {
         movePalm = false;
         palmTreeX = 2700;
         incrementStrikes(++strikes);
+        if(!gameover) renderNewWord();
     }
     ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
     ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
