@@ -1,5 +1,6 @@
 let chosenWord = "";
 let strikes = 0;
+let correctWordCounter = 0;
 let gameover = false;
 
 function incrementStrikes(strikeNum) {
@@ -20,7 +21,14 @@ function renderNewWord() {
     document.getElementById('type-input').focus();
     document.addEventListener('keydown', function(e) {
         let input = document.getElementById('type-input').value;
-        if(input == chosenWord) console.log('input matches chosen word');
+        if(input == chosenWord) {
+            meteorX = palmTreeX + 100;
+            fallingMeteor = true;
+            document.getElementById('word-prompt').innerHTML = "";
+            document.getElementById('type-input').value = "";
+            correctWordCounter += 1;
+            document.getElementById('correctNum').innerHTML = correctWordCounter;
+        }
     })
 }
 
