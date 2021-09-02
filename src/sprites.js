@@ -31,14 +31,17 @@ let dinoSrcY;
 
 let palmTreeX = 120;
 let palmTreeY = 800;
+let palmTreeScale = 5;
 
 let meteorX = 270;
 let meteorY = 900;
+let meteorScale = 0.125;
 
 let explosionX = 300;
 let explosionY = 1100;
 let explosionSrcX;
 let explosionSrcY;
+let explosionScale = 4;
 
 let dinoCurrFrame = 0;
 let explosionCurrFrame = 0;
@@ -60,17 +63,17 @@ function updateFrame() {
     explosionSrcY = 0;
 
     ctx.clearRect(dinoX, dinoY, dinoWidth, dinoHeight);
-    ctx.clearRect(explosionX, explosionY, explosionWidth*4, explosionHeight*4);
+    ctx.clearRect(explosionX, explosionY, explosionWidth*explosionScale, explosionHeight*explosionScale);
 }
 
 function drawImage() {
     updateFrame();
     let dinoSprite = idleMode ? idleDinoSprite : runDinoSprite;
     ctx.drawImage(dinoSprite, dinoSrcX, dinoSrcY, dinoWidth, dinoHeight, dinoX, dinoY, dinoWidth, dinoHeight);
-    ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*5, palmTreeHeight*5);
-    ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*5, palmTreeHeight*5);
-    ctx.drawImage(meteorSprite, 0, 0, meteorWidth, meteorHeight, meteorX, meteorY, meteorWidth*0.125, meteorHeight*0.125);
-    ctx.drawImage(explosionSprite, explosionSrcX, explosionSrcY, explosionWidth, explosionHeight, explosionX, explosionY, explosionWidth*4, explosionHeight*4);
+    ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
+    ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
+    ctx.drawImage(meteorSprite, 0, 0, meteorWidth, meteorHeight, meteorX, meteorY, meteorWidth*meteorScale, meteorHeight*meteorScale);
+    ctx.drawImage(explosionSprite, explosionSrcX, explosionSrcY, explosionWidth, explosionHeight, explosionX, explosionY, explosionWidth*explosionScale, explosionHeight*explosionScale);
 }
 
 setInterval(function() {
