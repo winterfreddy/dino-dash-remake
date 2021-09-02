@@ -15,5 +15,10 @@ function startGame() {
         idleMode = false;
         chosenWord = getSampleWord();
         document.getElementById('word-prompt').innerHTML = chosenWord;
+        document.getElementById('type-input').focus();
+        document.addEventListener('keydown', function(e) {
+            let input = document.getElementById('type-input').value;
+            if(input == chosenWord) console.log('input matches chosen word');
+        })
     },3000);
 }

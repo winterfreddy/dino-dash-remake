@@ -136,6 +136,13 @@ body {
     text-align: right;
 }
 
+.type-input {
+    float: right;
+    margin-right: 30px;
+    font-size: 50px;
+    width: 30%;
+}
+
 .ready-label,
 .set-label,
 .go-label {
