@@ -1,3 +1,5 @@
+let chosenWord = "";
+
 function startGame() {
     document.getElementById("ready-label").style.display = "block";
     setTimeout(function() {
@@ -10,5 +12,8 @@ function startGame() {
     },2000);
     setTimeout(function() {
         document.getElementById("go-label").style.display = "none";
+        idleMode = false;
+        chosenWord = getSampleWord();
+        document.getElementById('word-prompt').innerHTML = chosenWord;
     },3000);
 }
