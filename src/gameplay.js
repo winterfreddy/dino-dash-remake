@@ -1,5 +1,10 @@
 let chosenWord = "";
 
+function incrementStrikes(strikeNum) {
+    document.getElementById(`strike-${strikeNum}`).style.color = "red";
+    if(strikeNum === 3) stopGame();
+}
+
 function startGame() {
     document.getElementById("ready-label").style.display = "block";
     setTimeout(function() {
@@ -13,6 +18,7 @@ function startGame() {
     setTimeout(function() {
         document.getElementById("go-label").style.display = "none";
         idleMode = false;
+        movePalm = true;
         chosenWord = getSampleWord();
         document.getElementById('word-prompt').innerHTML = chosenWord;
         document.getElementById('type-input').focus();
@@ -21,4 +27,8 @@ function startGame() {
             if(input == chosenWord) console.log('input matches chosen word');
         })
     },3000);
+}
+
+function stopGame() {
+    idleMode = true;
 }

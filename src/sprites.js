@@ -29,9 +29,10 @@ let dinoY = 1000;
 let dinoSrcX;
 let dinoSrcY;
 
-let palmTreeX = 120;
+let palmTreeX = 2700;
 let palmTreeY = 800;
 let palmTreeScale = 5;
+let movePalm = false;
 
 let meteorX = 270;
 let meteorY = 900;
@@ -46,6 +47,7 @@ let explosionScale = 4;
 let dinoCurrFrame = 0;
 let explosionCurrFrame = 0;
 let idleMode = true;
+let strikes = 0;
 
 let canvas = document.getElementById("myCanvas");
 canvas.width = canvasWidth;
@@ -70,8 +72,17 @@ function drawImage() {
     updateFrame();
     let dinoSprite = idleMode ? idleDinoSprite : runDinoSprite;
     ctx.drawImage(dinoSprite, dinoSrcX, dinoSrcY, dinoWidth, dinoHeight, dinoX, dinoY, dinoWidth, dinoHeight);
+
+    ctx.clearRect(palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
+    if(movePalm) palmTreeX -= 100;
+    if(palmTreeX < dinoX) {
+        movePalm = false;
+        palmTreeX = 2700;
+        incrementStrikes(++strikes);
+    }
     ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
     ctx.drawImage(palmTreeSprite, 0, 0, palmTreeWidth, palmTreeHeight, palmTreeX, palmTreeY, palmTreeWidth*palmTreeScale, palmTreeHeight*palmTreeScale);
+    
     ctx.drawImage(meteorSprite, 0, 0, meteorWidth, meteorHeight, meteorX, meteorY, meteorWidth*meteorScale, meteorHeight*meteorScale);
     ctx.drawImage(explosionSprite, explosionSrcX, explosionSrcY, explosionWidth, explosionHeight, explosionX, explosionY, explosionWidth*explosionScale, explosionHeight*explosionScale);
 }
